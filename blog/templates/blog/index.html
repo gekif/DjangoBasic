@@ -1,49 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ title }}</title>
-</head>
-<body>
-<!--    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, aliquid beatae cupiditate eaque est illum ipsam laboriosam libero nam nisi numquam obcaecati omnis quia quos saepe suscipit vel vitae voluptatem.-->
-
-<!--    {{ content }}-->
-
-<!--    {% for post in content %}-->
-<!--        <h2>{{ post.title }}</h2>-->
-<!--        <p>{{ post.content }}</p>-->
-<!--    {% endfor %}-->
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>{{ title }}</title>-->
+<!--</head>-->
+<!--<body>-->
 
 <!--    {% for post in content %}-->
 <!--        <h2><a href="{{ post.id }}"> {{ post.title }}</a></h2>-->
-<!--        <p>{{ post.content }}</p>-->
+<!--        <p>{{ post.short_content }}</p>-->
 <!--    {% endfor %}-->
 
-<!--    {% for post in content %}-->
-<!--        {% if post.id == 2 %}-->
-<!--            <h2><a href="{{ post.id }}"> {{ post.title }}</a></h2>-->
-<!--            <p>{{ post.content }}</p>-->
-<!--        {% endif %}-->
-<!--    {% endfor %}-->
+<!--</body>-->
+<!--</html>-->
 
-<!--    {% for post in content %}-->
-<!--        {% if post.id != 2 %}-->
-<!--            <h2><a href="{{ post.id }}"> {{ post.title }}</a></h2>-->
-<!--            <p>{{ post.content }}</p>-->
-<!--        {% endif %}-->
-<!--    {% endfor %}-->
 
-    {% for post in content %}
-        {% if post.id != 2 %}
+{% extends 'site/index.html' %}
+
+{% block content %}
+        {% for post in content %}
             <h2><a href="{{ post.id }}"> {{ post.title }}</a></h2>
-            <p>{{ post.content }}</p>
-        {% else %}
-            <p>Not Found</p>
-        {% endif %}
-    {% endfor %}
-
-</body>
-</html>
+            <p>{{ post.short_content }}</p>
+        {% endfor %}
+{% endblock content %}
