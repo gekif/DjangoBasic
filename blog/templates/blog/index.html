@@ -1,12 +1,8 @@
 {% extends 'sites/index.html' %}
 
-{% block main_content %}
+{% block content %}
     {% for post in content %}
-        <h2><a href="{% url 'detail' post.id %}"> {{ post.title }}</a></h2>
+        <h2><a href="{{ post.id }}"> {{ post.title }}</a></h2>
         <p>{{ post.short_content }}</p>
     {% endfor %}
-{% endblock main_content %}
-
-{% block sidebar %}
-    <!-- Konten sidebar Anda -->
-{% endblock sidebar %}
+{% endblock content %}

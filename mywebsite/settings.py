@@ -83,8 +83,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '123456',
         'HOST': 'localhost',
-        'PORT': '5432',
-        'ATOMIC_REQUESTS': True
+        'PORT': '5432'
     }
 }
 
@@ -113,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bangkok'
 
 USE_I18N = True
 
