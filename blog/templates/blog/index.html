@@ -1,28 +1,12 @@
-<!--<!doctype html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport"-->
-<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <title>{{ title }}</title>-->
-<!--</head>-->
-<!--<body>-->
+{% extends 'sites/index.html' %}
 
-<!--    {% for post in content %}-->
-<!--        <h2><a href="{{ post.id }}"> {{ post.title }}</a></h2>-->
-<!--        <p>{{ post.short_content }}</p>-->
-<!--    {% endfor %}-->
+{% block main_content %}
+    {% for post in content %}
+        <h2><a href="{% url 'detail' post.id %}"> {{ post.title }}</a></h2>
+        <p>{{ post.short_content }}</p>
+    {% endfor %}
+{% endblock main_content %}
 
-<!--</body>-->
-<!--</html>-->
-
-
-{% extends 'site/index.html' %}
-
-{% block content %}
-        {% for post in content %}
-            <h2><a href="{{ post.id }}"> {{ post.title }}</a></h2>
-            <p>{{ post.short_content }}</p>
-        {% endfor %}
-{% endblock content %}
+{% block sidebar %}
+    <!-- Konten sidebar Anda -->
+{% endblock sidebar %}
