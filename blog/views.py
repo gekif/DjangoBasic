@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from blog import models, forms
 from django.http import HttpResponse, Http404
 
@@ -16,12 +16,18 @@ def detail(request, id):
     except Exception:
         raise Http404()
 
-    form = forms.CommentForm(request.POST if request.method == 'POST' else {'post': model})
+    if request.method == 'POST':
+        form = forms.CommentForm(request.POST)
 
-    if form.is_valid():
-        form.save()
+        if form.is_valid():
+            form.save()
+            return redirect('blog-detail', id=id)
+
+    else:
+        form = forms.CommentForm({'post': model})
 
     return render(request, 'blog/detail.html', {
         'title': model.title,
-        'model': model
+        'model': model,
+        'form': form
     })
